@@ -25,9 +25,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38352847, 0)
 
 [node name="Crucifixion" parent="CameraPivot" unique_id=687582548 instance=ExtResource("3_qhqgy")]
 transform = Transform3D(0.026620831, 0, 0.3710129, 0, 0.44626004, 0, -0.5283374, 0, 0.018693876, 0.6993046, 0.12213147, -0.8733565)
+visible = false
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1731063227 groups=["Player"]]
 script = ExtResource("4_dqkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=881198450]
 shape = SubResource("CapsuleShape3D_2wtta")
+
+[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
