@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dl23jlha6sy2g"]
+
+[ext_resource type="Script" uid="uid://ckic57go61yu3" path="res://scripts/cross.gd" id="1_2t7x4"]
+[ext_resource type="PackedScene" uid="uid://0kw7env4igis" path="res://assets/Crucifixion.glb" id="1_6ulh2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bgiiy"]
+
+[node name="Crossitem" type="Node3D" unique_id=495322567]
+script = ExtResource("1_2t7x4")
+
+[node name="Crucifixion" parent="." unique_id=687582548 instance=ExtResource("1_6ulh2")]
+transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, -0.015725374, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1420342757 groups=["Item"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1173623003]
+transform = Transform3D(0.925, 0, 0, 0, 0.925, 0, 0, 0, 0.925, 0, 0, 0)
+shape = SubResource("CylinderShape3D_bgiiy")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
