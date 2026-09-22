@@ -12,7 +12,7 @@ func _ready() -> void:
 func some_func() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Убрали постоянный спам emit_signal из process!
 	
 	# Исправь 'escape' на точное имя из твоего Input Map

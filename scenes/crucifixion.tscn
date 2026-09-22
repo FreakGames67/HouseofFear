@@ -1,16 +1,110 @@
 [gd_scene format=3 uid="uid://1hctbcxgg5d2"]
 
 [ext_resource type="PackedScene" uid="uid://0kw7env4igis" path="res://assets/Crucifixion.glb" id="1_0nnin"]
+[ext_resource type="Script" uid="uid://cpm5greo7bqlu" path="res://scripts/crucifixion.gd" id="2_j03ec"]
+
+[sub_resource type="Animation" id="Animation_pfwy1"]
+resource_name = "IDLE"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.08, 0), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_0nnin"]
-resource_name = "Ran"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_j03ec"]
+[sub_resource type="Animation" id="Animation_j03ec"]
+resource_name = "attack"
+length = 2.87
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.0666667, 1.15, 1.23, 1.33, 1.3333334, 1.4666667, 1.6333333, 1.95, 2.37, 2.8666666),
+"transitions": PackedFloat32Array(1, 0.014578651, 0.05255599, 0.047366172, 0.0563283, 0.46651652, 1, 0.73204285, 0.05255606, 1.4640859, 0.019236602, 0.06250016),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.63, 0, 0.505), Vector3(-0.63, -0.225, 0.505), Vector3(-0.63, 0.075, 0.505), Vector3(-0.63, -0.175, 0.505), Vector3(-0.63, 0.045, 0.505), Vector3(-0.63, 0.135, 0.505), Vector3(-0.63, -0.045, 0.505), Vector3(-0.63, 0.02, 0.505), Vector3(-0.63, 0, 0.505), Vector3(0.27, 0.03, 0.505), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.8666666),
+"transitions": PackedFloat32Array(1, 1, 0.044194277),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.5235988, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mipdf"]
+resource_name = "walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.64, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.3, 0), Vector3(0, 0.3, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pfwy1"]
 _data = {
-&"Ran": SubResource("Animation_0nnin")
+&"IDLE": SubResource("Animation_pfwy1"),
+&"RESET": SubResource("Animation_0nnin"),
+&"attack": SubResource("Animation_j03ec"),
+&"walking": SubResource("Animation_mipdf")
 }
 
 [node name="Crucifixion" unique_id=687582548 instance=ExtResource("1_0nnin")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("2_j03ec")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=679554346]
-libraries/ = SubResource("AnimationLibrary_j03ec")
+[node name="Cube_001" parent="." index="1" unique_id=1844915902]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1.26, 0, 1, -5.507635e-08, 0, -0.44, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1738275261]
+libraries/ = SubResource("AnimationLibrary_pfwy1")

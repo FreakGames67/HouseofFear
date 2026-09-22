@@ -25,8 +25,7 @@ script = ExtResource("2_g2els")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38352847, 0)
 
 [node name="Crucifixion" parent="CameraPivot" unique_id=687582548 instance=ExtResource("3_dqkch")]
-transform = Transform3D(-2.2074252e-08, 0, 0.505, 0, 0.505, 0, -0.505, 0, -2.2074252e-08, 0.618, 0.164, -0.66)
-visible = false
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1731063227 groups=["Player"]]
 script = ExtResource("4_dqkch")
