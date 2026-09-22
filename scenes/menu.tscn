@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b10bvjucxgvyl"]
+
+[ext_resource type="Script" uid="uid://crda2yena36ny" path="res://control.gd" id="1_yqeox"]
+
+[node name="Menu" type="CanvasLayer" unique_id=1128986672]
+
+[node name="Control" type="Control" parent="." unique_id=33838913]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+script = ExtResource("1_yqeox")
+
+[node name="Restart" type="Button" parent="Control" unique_id=1943989708]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 244.0
+offset_right = 691.0
+offset_bottom = 297.0
+text = "Restart"
+
+[node name="Exit" type="Button" parent="Control" unique_id=1239177735]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 315.0
+offset_right = 691.0
+offset_bottom = 368.0
+text = "Exit"
+
+[connection signal="pressed" from="Control/Restart" to="Control" method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/Exit" to="Control" method="_on_exit_pressed"]

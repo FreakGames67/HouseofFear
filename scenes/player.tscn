@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cvys5ey1s8jy5" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://djmd26t6ihvj6" path="res://scripts/camera_pivot.gd" id="2_g2els"]
-[ext_resource type="PackedScene" uid="uid://0kw7env4igis" path="res://assets/Crucifixion.glb" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://1hctbcxgg5d2" path="res://scenes/crucifixion.tscn" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://cgjbxqc8pvg1y" path="res://scripts/area_3d.gd" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://b10bvjucxgvyl" path="res://scenes/menu.tscn" id="5_qlg0r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2els"]
 
@@ -23,8 +24,8 @@ script = ExtResource("2_g2els")
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=604922543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38352847, 0)
 
-[node name="Crucifixion" parent="CameraPivot" unique_id=687582548 instance=ExtResource("3_qhqgy")]
-transform = Transform3D(0.026620831, 0, 0.3710129, 0, 0.44626004, 0, -0.5283374, 0, 0.018693876, 0.6993046, 0.12213147, -0.8733565)
+[node name="Crucifixion" parent="CameraPivot" unique_id=687582548 instance=ExtResource("3_dqkch")]
+transform = Transform3D(-2.2074252e-08, 0, 0.505, 0, 0.505, 0, -0.505, 0, -2.2074252e-08, 0.618, 0.164, -0.66)
 visible = false
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1731063227 groups=["Player"]]
@@ -32,5 +33,7 @@ script = ExtResource("4_dqkch")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=881198450]
 shape = SubResource("CapsuleShape3D_2wtta")
+
+[node name="Menu" parent="." unique_id=1128986672 instance=ExtResource("5_qlg0r")]
 
 [connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]

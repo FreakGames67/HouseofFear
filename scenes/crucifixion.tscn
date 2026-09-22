@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://1hctbcxgg5d2"]
+
+[ext_resource type="PackedScene" uid="uid://0kw7env4igis" path="res://assets/Crucifixion.glb" id="1_0nnin"]
+
+[sub_resource type="Animation" id="Animation_0nnin"]
+resource_name = "Ran"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j03ec"]
+_data = {
+&"Ran": SubResource("Animation_0nnin")
+}
+
+[node name="Crucifixion" unique_id=687582548 instance=ExtResource("1_0nnin")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=679554346]
+libraries/ = SubResource("AnimationLibrary_j03ec")
